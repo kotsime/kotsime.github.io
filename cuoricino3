@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+    <body>
+    <p><canvas id="lavagna" width="300" height="280">
+    Your browser does not support the HTML5 canvas tag.</canvas>
+    <script>
+    const k=80;
+    var Ox,Oy;
+    var cx,cy;
+    var c=document.getElementById("lavagna");
+    Ox=0.5*c.width;
+    Oy=c.height/2-40;
+    var canvas=c.getContext("2d");
+    canvas.beginPath();
+    canvas.fillStyle="red"
+    canvas.strokeStyle="maroon"
+    for (i=-1.8;i<=1.8; i=i+0.001) {
+    cy=Math.sqrt(Math.cos(i))*Math.cos(300*i)+(Math.sqrt(Math.abs(i))-0.7)*Math.pow(4-i*i,1/100);
+    canvas.beginPath();
+    cx=(i)*k+Ox;
+    cy=Oy-k*cy;
+    canvas.arc(cx,cy,1,0,2*Math.PI);
+    canvas.stroke();
+    canvas.fill();
+    };
+    </script>
+    </body>
+    </html>
